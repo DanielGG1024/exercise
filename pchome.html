@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .Cr4 {
+    width: 400px;
+    margin: 20px auto 0;
+  }
+
+  .head>ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+
+  .head>ul>li {
+    border-radius: 5px 5px 0 0;
+    border: 1px solid black;
+    background-color: lightgreen;
+    color: black;
+  }
+
+  .head>ul>li.actived {
+    background-color: black;
+    color: lightgreen;
+  }
+
+  .body img {
+    width: 400px;
+    height: 200px;
+  }
+
+  .unblock {
+    display: none;
+  }
+</style>
+
+<body>
+  <div class="Cr4" id="Block433_512Container" _id="1_00_018">
+    <dl>
+      <dd class="head">
+        <ul class="clearfix">
+          <li _class="Cr4" class="actived"><a href="https://shopping.pchome.com.tw/V1111P/DP">滿千送百</a></li>
+          <li _class="Cr4" class=""><a href="https://www.facebook.com/groups/498729124625585/?24_c2_2">官方社團</a></li>
+          <li _class="Cr4" class=""><a href="https://www.pchomeec.tw/sites/pchomex?24_03">家好選物</a></li>
+          <li _class="Cr4" class=""><a href="https://event.pchome.com.tw/2021/onepchome/?24_c2_4">送111P幣</a></li>
+        </ul>
+      </dd>
+      <dd class="body clearfix">
+        <a class="prod_img" href="https://shopping.pchome.com.tw/V1111P/DP"><img
+            _src="//e.ecimg.tw/img/h24/v1/layout/index/1/20211110164948_b435-3-500x330.jpg" alt="" title=""
+            src="https://e.ecimg.tw/img/h24/v1/layout/index/1/20211110164948_b435-3-500x330.jpg">
+          <ul class="prod_descrb"></ul>
+        </a>
+        <a class="prod_img unblock" href="https://www.facebook.com/groups/498729124625585/?24_c2_2_0"><img
+            _src="//b.ecimg.tw/img/h24/v1/layout/index/1/20211025113926_b453-3-500x330.jpg" alt="" title=""
+            src="https://b.ecimg.tw/img/h24/v1/layout/index/1/20211025113926_b453-3-500x330.jpg">
+          <ul class="prod_descrb unblock"></ul>
+        </a>
+        <a class="prod_img unblock" href="https://www.pchomeec.tw/sites/pchomex?24_03"><img
+            _src="//b.ecimg.tw/img/h24/v1/layout/index/1/20211108151122_b482-3-500x330.jpg" alt="" title=""
+            src="https://b.ecimg.tw/img/h24/v1/layout/index/1/20211108151122_b482-3-500x330.jpg">
+          <ul class="prod_descrb unblock"></ul>
+        </a>
+        <a class="prod_img unblock" href="https://event.pchome.com.tw/2021/onepchome/?24_c2_4"><img
+            _src="//c.ecimg.tw/img/h24/v1/layout/index/1/20211108102527_b498-3-500x330.jpg" alt="" title=""
+            src="https://c.ecimg.tw/img/h24/v1/layout/index/1/20211108102527_b498-3-500x330.jpg">
+          <ul class="prod_descrb unblock"></ul>
+        </a>
+      </dd>
+    </dl>
+  </div>
+  <script>
+    let lists = Array.from(document.querySelectorAll('.head ul li'))
+    let body = Array.from(document.querySelectorAll('.body a'))
+    lists.forEach(list => {
+      list.addEventListener('mouseenter', function () {
+        lists.forEach(item => {
+          if (item.className === 'actived') {
+            item.classList.remove('actived')
+          }
+        })
+        body.forEach(element => {
+          if (!element.className.includes('unblock')) {
+            element.classList.add('unblock')
+          }
+        })
+        this.classList.add('actived')
+        index = lists.indexOf(this)
+        body[index].classList.remove('unblock')
+      })
+    })
+  </script>
+</body>
+</html>
